@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary">#FFD93945</color>
+    <color name="primaryDark">#FFFF3944</color>
+    <color name="primaryLight">#FF553944</color>
+    <color name="grayDark">#FF303030</color>
+    <color name="gray">#FF505050</color>
+    <color name="grayLight">#FFC0C0C0</color>
+    <color name="grayWhite">#FFF0F0F0</color>
+    <color name="secondary">#FFEFAC2A</color>
+
+    <!-- drop down list header font color -->
+    <color name="drop_down_list_header_font_color">#000000</color>
+    <!-- drop down list header second font color -->
+    <color name="drop_down_list_header_second_font_color">#000000</color>
+    <!-- drop down list footer font color -->
+    <color name="drop_down_list_footer_font_color">#000000</color>
+    
+</resources>

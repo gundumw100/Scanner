@@ -1,0 +1,426 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.app.scanner.MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_frame"
+        android:orientation="vertical"
+        android:padding="16dp" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_launcher"
+                android:drawablePadding="8dp"
+                android:gravity="left|center_vertical"
+                android:singleLine="true"
+                android:text="扫描精灵"
+                android:textColor="@color/grayDark"
+                android:textSize="@dimen/font_middle" />
+
+            <com.widget.iconify.IconTextView
+                android:id="@+id/btn_hide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:padding="8dp"
+                android:text="{fa-angle-double-up}  收起"
+                android:textColor="@color/grayLight"
+                android:textSize="@dimen/font_middle" />
+        </FrameLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:text="屏幕扫描按键" />
+
+            <CheckBox
+                android:id="@+id/cb_ball"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:background="@drawable/bg_check"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="隐藏"
+                android:textSize="@dimen/font_middle" />
+
+        </FrameLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <TextView
+            android:id="@+id/btn_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:text="(如果屏幕没有显示扫描按键，请在 设置->无障碍（或辅助功能） ->开启扫描精灵)"
+            android:textColor="@color/grayLight"
+            android:textSize="@dimen/font_small" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <com.app.widget.ClearEditText
+            android:id="@+id/et_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="测试扫描数据"
+            android:textColor="@color/grayDark"
+            android:textSize="@dimen/font_middle" 
+            />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/btn_expand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        android:button="@drawable/check" />
+
+    <com.widget.expandablelayout.ExpandableLayout
+        android:id="@+id/expandableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:el_duration="1000"
+        app:el_expanded="false" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_frame"
+            android:orientation="vertical"
+            android:padding="8dp" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <com.widget.iconify.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="{fa-flash}  连扫"
+                    android:textSize="@dimen/font_big" />
+
+                <RadioGroup
+                    android:id="@+id/rg_continu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rb_continu_off"
+                        style="@style/Theme_Radio"
+                        android:text="关闭" 
+                        android:checked="true"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/rb_continu_normal"
+                        style="@style/Theme_Radio"
+                        android:text="正常" />
+
+                    <RadioButton
+                        android:id="@+id/rb_continu_detection"
+                        style="@style/Theme_Radio"
+                        android:text="去重" />
+                </RadioGroup>
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+            
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <com.widget.iconify.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="{fa-flash}  闪光灯"
+                    android:textSize="@dimen/font_big" />
+
+                <RadioGroup
+                    android:id="@+id/rg_shan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rb_shan_auto"
+                        style="@style/Theme_Radio"
+                        android:text="@string/auto" />
+
+                    <RadioButton
+                        android:id="@+id/rb_shan_on"
+                        style="@style/Theme_Radio"
+                        android:text="@string/on" />
+
+                    <RadioButton
+                        android:id="@+id/rb_shan_off"
+                        style="@style/Theme_Radio"
+                        android:text="@string/off" />
+                </RadioGroup>
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <com.widget.iconify.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="{fa-crosshairs}  定位灯"
+                    android:textSize="@dimen/font_big" />
+
+                <RadioGroup
+                    android:id="@+id/rg_ding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rb_ding_auto"
+                        style="@style/Theme_Radio"
+                        android:text="@string/auto" />
+
+                    <RadioButton
+                        android:id="@+id/rb_ding_on"
+                        style="@style/Theme_Radio"
+                        android:text="@string/on" />
+
+                    <RadioButton
+                        android:id="@+id/rb_ding_off"
+                        style="@style/Theme_Radio"
+                        android:text="@string/off" />
+                </RadioGroup>
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <com.widget.iconify.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="{fa-barcode}  一维码"
+                    android:textSize="@dimen/font_big" />
+
+                <RadioGroup
+                    android:id="@+id/rg_yi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rb_yi_on"
+                        style="@style/Theme_Radio"
+                        android:text="@string/on" />
+
+                    <RadioButton
+                        android:id="@+id/rb_yi_off"
+                        style="@style/Theme_Radio"
+                        android:text="@string/off" />
+                </RadioGroup>
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <com.widget.iconify.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="{fa-qrcode}  二维码"
+                    android:textSize="@dimen/font_big" />
+
+                <RadioGroup
+                    android:id="@+id/rg_er"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rb_er_on"
+                        style="@style/Theme_Radio"
+                        android:text="@string/on" />
+
+                    <RadioButton
+                        android:id="@+id/rb_er_off"
+                        style="@style/Theme_Radio"
+                        android:text="@string/off" />
+                </RadioGroup>
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <com.widget.iconify.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="{fa-reply}  自动回车"
+                    android:textSize="@dimen/font_big" />
+
+                <RadioGroup
+                    android:id="@+id/rg_enter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rb_enter_on"
+                        style="@style/Theme_Radio"
+                        android:text="@string/on" />
+
+                    <RadioButton
+                        android:id="@+id/rb_enter_off"
+                        style="@style/Theme_Radio"
+                        android:text="@string/off" />
+                </RadioGroup>
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <com.widget.iconify.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="{fa-gear}  震动"
+                    android:textSize="@dimen/font_big" />
+
+                <RadioGroup
+                    android:id="@+id/rg_vibrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rb_vibrate_on"
+                        style="@style/Theme_Radio"
+                        android:text="@string/on" />
+
+                    <RadioButton
+                        android:id="@+id/rb_vibrate_off"
+                        style="@style/Theme_Radio"
+                        android:text="@string/off" />
+                </RadioGroup>
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/btn_update"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="检查更新"
+                        android:textColor="@color/grayDark"
+                        android:textSize="@dimen/font_middle" />
+
+                    <Space
+                        android:layout_width="16dp"
+                        android:layout_height="16dp" />
+
+                    <Button
+                        android:id="@+id/btn_default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="恢复默认"
+                        android:textColor="@color/grayDark"
+                        android:textSize="@dimen/font_middle" />
+
+                    <Space
+                        android:layout_width="16dp"
+                        android:layout_height="16dp" />
+
+                    <Button
+                        android:id="@+id/btn_exit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="退出软件"
+                        android:textColor="@color/grayDark"
+                        android:textSize="@dimen/font_middle" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </com.widget.expandablelayout.ExpandableLayout>
+
+</LinearLayout>
